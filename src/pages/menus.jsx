@@ -16,6 +16,7 @@ const Menus = () => {
   const [deleteCategoryModal, setDeleteCategoryModal] = useState(false);
   const [addMenuModal, setAddMenuModal] = useState(false);
   const [categoryName, setCategoryName] = useState();
+  const [selectedDeleteCategory, setSelectedDeleteCategory] = useState();
   const [selectedCategory, setSelectedCategory] = useState();
   const [newMenu, setNewMenu] = useState({
     title: "",
@@ -41,6 +42,16 @@ const Menus = () => {
       setImage(event.target.files[0]);
     }
   };
+
+  const menusCopy = [...menus];
+  const filtered =
+    selectedCategory == undefined
+      ? menus
+      : menusCopy.filter((menu) => {
+          if (menu.category == selectedCategory?.name) {
+            return menu;
+          }
+        });
 
   return (
     <div className="h-screen w-full" style={{ backgroundColor: "#FBFBFB" }}>
@@ -99,7 +110,7 @@ const Menus = () => {
               <Button
                 color="failure"
                 onClick={() => {
-                  deleteCategory(selectedCategory);
+                  deleteCategory(selectedDeleteCategory);
                   setDeleteCategoryModal(false);
                 }}
               >
@@ -141,7 +152,11 @@ const Menus = () => {
               >
                 <option selected>Choose a Category</option>
                 {categories.map((category) => {
-                  return <option value={category.name}>{category.name}</option>;
+                  return (
+                    <option key={category.id} value={category.name}>
+                      {category.name}
+                    </option>
+                  );
                 })}
               </select>
             </div>
@@ -204,6 +219,7 @@ const Menus = () => {
           </div>
         </Modal.Body>
       </Modal>
+
       <div className="flex flex-row">
         <div class="basis-1/12 bg-green-800 shadow">
           <Sidebar />
@@ -238,6 +254,8 @@ const Menus = () => {
             <div className="wrapper flex justify-start items-start">
               <Category
                 setSelectedCategory={setSelectedCategory}
+                selectedCategory={selectedCategory}
+                setSelectedDeleteCategory={setSelectedDeleteCategory}
                 setDeleteCategoryModal={setDeleteCategoryModal}
                 admin={true}
                 categories={categories}
@@ -246,7 +264,7 @@ const Menus = () => {
             </div>
 
             <div className="flex flex-row flex-wrap">
-              {menus.map((menu) => {
+              {filtered.map((menu) => {
                 return (
                   <div key={menu.id} className="basis-3/12">
                     <MenuCard admin={true} menu={menu} />

@@ -7,6 +7,8 @@ const Category = ({
   loading,
   setDeleteCategoryModal,
   setSelectedCategory,
+  setSelectedDeleteCategory,
+  selectedCategory,
 }) => {
   return (
     <div
@@ -19,9 +21,25 @@ const Category = ({
         <>
           <h1 className="text-1xl">Category</h1>
           <Button.Group className="p-3">
+            <Button
+              onClick={() => setSelectedCategory()}
+              className="shadow"
+              color={selectedCategory == undefined ? "success" : "green"}
+            >
+              All
+            </Button>
             {categories.map((category) => {
               return (
-                <Button key={category.id} className="shadow" color="green">
+                <Button
+                  key={category.id}
+                  onClick={() => {
+                    setSelectedCategory(category);
+                  }}
+                  className="shadow"
+                  color={
+                    selectedCategory?.id == category.id ? "success" : "green"
+                  }
+                >
                   {category.name}
                   {admin && (
                     <Tooltip content="Delete Category">
@@ -31,7 +49,7 @@ const Category = ({
                         size={18}
                         onClick={() => {
                           setDeleteCategoryModal(true);
-                          setSelectedCategory(category.id);
+                          setSelectedDeleteCategory(category.id);
                         }}
                       />
                     </Tooltip>
