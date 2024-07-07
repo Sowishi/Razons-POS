@@ -9,20 +9,29 @@ const Sidebar = () => {
         <img src={logo} alt="" className="object-cover rounded" />
       </div>
       <div className="wrapper text-white">
-        <div className="flex items-center justify-center flex-col my-5">
-          <Link to={"/pos"}>
+        <div>
+          <Link
+            className="flex items-center justify-center flex-col my-5"
+            to={"/pos"}
+          >
             <LuMonitor size={25} />
             <p className="text-sm">POS</p>
           </Link>
         </div>
-        <div className="flex items-center justify-center flex-col my-5">
-          <Link to={"/menus"}>
+        <div>
+          <Link
+            className="flex items-center justify-center flex-col my-5"
+            to={"/menus"}
+          >
             <MdOutlineRestaurantMenu size={25} />
             <p className="text-sm">Menu</p>
           </Link>
         </div>
-        <div className="flex items-center justify-center flex-col my-5">
-          <Link to={"/orders"}>
+        <div>
+          <Link
+            className="flex items-center justify-center flex-col my-5"
+            to={"/orders"}
+          >
             <LuShoppingCart size={25} /> <p className="text-sm">Orders</p>
           </Link>
         </div>

@@ -140,7 +140,7 @@ const RightDetail = () => {
         <h1 className="text-lg">Total: ₱100</h1>
         <h1 className="text-lg">Discounted: ₱100</h1>
       </div>
-      <Button color={"failure"} className="w-full my-3">
+      <Button color={"warning"} className="w-full my-3">
         Continue to Payment
       </Button>
     </div>
