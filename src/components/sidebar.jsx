@@ -1,5 +1,7 @@
 import { LuLogOut, LuMonitor, LuShoppingCart } from "react-icons/lu";
+import { MdOutlineRestaurantMenu } from "react-icons/md";
 import logo from "../assets/razon.jpg";
+import { Link } from "react-router-dom";
 const Sidebar = () => {
   return (
     <div className="container  h-full flex justify-around items-center flex-col">
@@ -8,11 +10,21 @@ const Sidebar = () => {
       </div>
       <div className="wrapper text-white">
         <div className="flex items-center justify-center flex-col my-5">
-          <LuMonitor size={25} />
-          <p className="text-sm">POS</p>
+          <Link to={"/pos"}>
+            <LuMonitor size={25} />
+            <p className="text-sm">POS</p>
+          </Link>
         </div>
         <div className="flex items-center justify-center flex-col my-5">
-          <LuShoppingCart size={25} /> <p className="text-sm">Orders</p>
+          <Link to={"/menus"}>
+            <MdOutlineRestaurantMenu size={25} />
+            <p className="text-sm">Menu</p>
+          </Link>
+        </div>
+        <div className="flex items-center justify-center flex-col my-5">
+          <Link to={"/orders"}>
+            <LuShoppingCart size={25} /> <p className="text-sm">Orders</p>
+          </Link>
         </div>
         <div className="flex items-center justify-center flex-col my-5">
           <LuLogOut size={25} />
