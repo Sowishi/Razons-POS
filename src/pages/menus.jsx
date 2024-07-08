@@ -274,7 +274,7 @@ const Menus = () => {
         <Modal.Body>
           <div className="space-y-6">
             <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-              Add Menu
+              Update Menu
             </h3>
             <div>
               <div className="mb-2 block">
@@ -346,7 +346,7 @@ const Menus = () => {
             <Button
               onClick={() => {
                 updateMenu({ ...newMenu, image: image, id: selectedMenu.id });
-                setAddMenuModal(false);
+                setEditMenuModal(false);
               }}
               className="w-full"
               color={"warning"}

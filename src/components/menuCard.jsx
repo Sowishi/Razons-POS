@@ -1,5 +1,7 @@
 import { Button } from "flowbite-react";
+import { useContext } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import { CartContext } from "../context/cartContext";
 
 const MenuCard = ({
   menu,
@@ -8,6 +10,8 @@ const MenuCard = ({
   setSelectedMenu,
   setEditMenuModal,
 }) => {
+  const { cart, setCart } = useContext(CartContext);
+
   return (
     <div className="card bg-white p-5 shadow">
       <img src={menu.image} alt="" className="w-full h-52 object-cover" />
@@ -18,7 +22,16 @@ const MenuCard = ({
 
         <h1 className="text-2xl my-3 font-bold text-red-600">₱{menu.price}</h1>
       </div>
-      {!admin && <Button className="w-full bg-green-900">Add to Cart</Button>}
+      {!admin && (
+        <Button
+          className="w-full bg-green-900"
+          onClick={() => {
+            setCart([...cart, menu]);
+          }}
+        >
+          Add to Cart
+        </Button>
+      )}
       {admin && (
         <div className="flex items-center justify-between">
           <button
