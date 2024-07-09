@@ -370,7 +370,7 @@ const Menus = () => {
           }}
         >
           <div className="cotainer mx-auto">
-            <div className="header flex justify-between">
+            <div className="header flex justify-between m-5">
               <h1 className="text-3xl font-bold ">Menus</h1>
               <div className="wrapper flex flex-row">
                 <Button

@@ -68,7 +68,7 @@ const RightDetail = () => {
           <h1 className="text-center my-3 text-lg">
             Total: <span className="font-bold">₱{total}</span>
           </h1>
-          <h1 className="text-lg">Received Money</h1>
+          <h1 className="text-md">Received Money</h1>
           <TextInput
             onChange={(event) => setCustomerMoney(event.target.value)}
             placeholder="Customer's Money"

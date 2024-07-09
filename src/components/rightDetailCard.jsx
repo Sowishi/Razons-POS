@@ -42,21 +42,26 @@ const RightDetailCard = ({ menu, confirmation }) => {
 
   return (
     <div className="flex flex-row justify-start items-center my-3">
-      <div className="basis-2/12 flex justify-start items-center">
+      <div className="basis-2/12 flex justify-start items-center mx-3">
+        {confirmation && (
+          <p className="mr-2">x{menu.quantity == null ? 1 : menu.quantity}</p>
+        )}
         <img
           src={menu.image}
           alt=""
           className="object-cover rounded"
           style={{ width: 50, height: 50 }}
         />{" "}
-        {confirmation && (
-          <p className="mx-3">x{menu.quantity == null ? 1 : menu.quantity}</p>
-        )}
       </div>
       <div className="basis-10/12 flex">
         <div className="basis-8/12 ">
           <div className="flex flex-col ml-3">
-            <h1 className="text-sm">{menu.title}</h1>
+            <div
+              className="title-wrapper  overflow-hidden"
+              style={{ width: 140 }}
+            >
+              <h1 className="text-sm text-nowrap">{menu.title}</h1>
+            </div>
 
             <h1 className="text-lg font-bold text-red-600">₱{menu.price}</h1>
           </div>
