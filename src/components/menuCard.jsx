@@ -16,10 +16,16 @@ const MenuCard = ({
     <div className="card bg-white p-5 shadow">
       <img src={menu.image} alt="" className="w-full h-52 object-cover" />
       <div className="wrapper">
-        <h1 className="text-2xl my-3">{menu.title}</h1>
+        <div
+          className="title-wrapper text-ellipsis overflow-hidden ..."
+          style={{ width: 250 }}
+        >
+          <h1 className="text-lg my-3 w-full text-ellipsis text-nowrap">
+            {menu.title}
+          </h1>
+        </div>
         <p className="text-sm text-gray-500">{menu.description}</p>
         <p className="text-sm text-gray-500">Category: {menu.category}</p>
-
         <h1 className="text-2xl my-3 font-bold text-red-600">₱{menu.price}</h1>
       </div>
       {!admin && (

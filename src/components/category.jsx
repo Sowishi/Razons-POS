@@ -12,7 +12,7 @@ const Category = ({
 }) => {
   return (
     <div
-      className="wrapper my-5 mx-auto overflow-scroll py-3"
+      className="wrapper my-5 mx-auto overflow-scroll py-3 "
       style={{ width: 850 }}
     >
       {loading ? (
