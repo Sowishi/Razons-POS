@@ -2,7 +2,7 @@ import { Button } from "flowbite-react";
 import { useContext } from "react";
 import { CartContext } from "../context/cartContext";
 
-const RightDetailCard = ({ menu }) => {
+const RightDetailCard = ({ menu, confirmation }) => {
   const { cart, setCart } = useContext(CartContext);
 
   const handleIncrement = () => {
@@ -49,38 +49,46 @@ const RightDetailCard = ({ menu }) => {
           className="object-cover rounded"
           style={{ width: 50, height: 50 }}
         />{" "}
+        {confirmation && (
+          <p className="mx-3">x{menu.quantity == null ? 1 : menu.quantity}</p>
+        )}
       </div>
       <div className="basis-10/12 flex">
         <div className="basis-8/12 ">
           <div className="flex flex-col ml-3">
             <h1 className="text-sm">{menu.title}</h1>
+
             <h1 className="text-lg font-bold text-red-600">₱{menu.price}</h1>
           </div>
         </div>
-        <div className="basis-4/12 flex justify-center flex-col items-start ">
-          <div className="quantity flex justify-around items-center">
+        {!confirmation && (
+          <div className="basis-4/12 flex justify-center flex-col items-start ">
+            <div className="quantity flex justify-around items-center">
+              <Button
+                disabled={!menu.quantity || menu.quantity == 1}
+                color={"success"}
+                size={"xs"}
+                onClick={handleDecrement}
+              >
+                -
+              </Button>
+              <p className="mx-1">
+                x{menu.quantity == null ? 1 : menu.quantity}
+              </p>
+              <Button onClick={handleIncrement} color={"success"} size={"xs"}>
+                +
+              </Button>
+            </div>
             <Button
-              disabled={!menu.quantity || menu.quantity == 1}
-              color={"success"}
+              onClick={handleDelete}
+              className="mt-2"
+              color={"failure"}
               size={"xs"}
-              onClick={handleDecrement}
             >
-              -
-            </Button>
-            <p className="mx-1">x{menu.quantity == null ? 1 : menu.quantity}</p>
-            <Button onClick={handleIncrement} color={"success"} size={"xs"}>
-              +
+              Delete
             </Button>
           </div>
-          <Button
-            onClick={handleDelete}
-            className="mt-2"
-            color={"failure"}
-            size={"xs"}
-          >
-            Delete
-          </Button>
-        </div>
+        )}
       </div>
     </div>
   );
