@@ -1,4 +1,4 @@
-import { Button, Tooltip } from "flowbite-react";
+import { Button, Spinner, Tooltip } from "flowbite-react";
 import { FaTrash } from "react-icons/fa";
 
 const Category = ({
@@ -16,7 +16,7 @@ const Category = ({
       style={{ width: 850 }}
     >
       {loading ? (
-        <h1>Loading...</h1>
+        <Spinner />
       ) : (
         <>
           <h1 className="text-1xl">Category</h1>

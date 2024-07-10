@@ -158,10 +158,7 @@ const Menus = () => {
               >
                 {"Yes, I'm sure"}
               </Button>
-              <Button
-                color="gray"
-                onClick={() => setDeleteCategoryModal(false)}
-              >
+              <Button color="gray" onClick={() => setDeleteMenuModal(false)}>
                 No, cancel
               </Button>
             </div>

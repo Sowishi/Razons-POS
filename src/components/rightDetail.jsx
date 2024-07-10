@@ -44,7 +44,7 @@ const RightDetail = () => {
               <Button
                 color="gray"
                 className="mx-3"
-                onClick={() => setOpenModal(false)}
+                onClick={() => setCheckoutModal(false)}
               >
                 Decline
               </Button>
@@ -119,7 +119,7 @@ const RightDetail = () => {
         })}
       </div>
       <div className="total mt-3">
-        <h1 className="text-lg">Total: ₱{total}</h1>
+        <h1 className="text-lg font-bold">Total: ₱{total}</h1>
         {/* <h1 className="text-lg">Discounted: ₱100</h1> */}
       </div>
       <Button

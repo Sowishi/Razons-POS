@@ -12,6 +12,16 @@ const MenuCard = ({
 }) => {
   const { cart, setCart } = useContext(CartContext);
 
+  const checkIfInCart = (id) => {
+    let output = false;
+    cart.map((item) => {
+      if (item.id == id) {
+        output = true;
+      }
+    });
+    return output;
+  };
+
   return (
     <div className="card bg-white p-5 shadow">
       <img src={menu.image} alt="" className="w-full h-52 object-cover" />
@@ -32,7 +42,9 @@ const MenuCard = ({
         <Button
           className="w-full bg-green-900"
           onClick={() => {
-            setCart([...cart, menu]);
+            if (!checkIfInCart(menu.id)) {
+              setCart([...cart, menu]);
+            }
           }}
         >
           Add to Cart
