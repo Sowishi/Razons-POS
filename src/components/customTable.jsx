@@ -1,10 +1,24 @@
-import { Accordion, Table } from "flowbite-react";
+import { Accordion, Button, HR, Modal, Table } from "flowbite-react";
 import moment from "moment";
 import RightDetailCard from "./rightDetailCard";
+import { useState } from "react";
+import Invoice from "./invoice";
 
 const CustomTable = ({ orders }) => {
+  const [invoiceModal, setInvoiceModal] = useState(false);
+  const [selectedOrder, setSelectedOrder] = useState(false);
+
   return (
     <div className="overflow-x-auto">
+      {/* Invoice Modal */}
+
+      <Modal show={invoiceModal} onClose={() => setInvoiceModal(false)}>
+        <Modal.Header>Razons By Glenn's Invoice</Modal.Header>
+        <Modal.Body>
+          <Invoice order={selectedOrder} />
+        </Modal.Body>
+      </Modal>
+
       <Table>
         <Table.Head>
           <Table.HeadCell>#</Table.HeadCell>
@@ -13,6 +27,7 @@ const CustomTable = ({ orders }) => {
           <Table.HeadCell>customer Change</Table.HeadCell>
           <Table.HeadCell>Total</Table.HeadCell>
           <Table.HeadCell>Orders</Table.HeadCell>
+          <Table.HeadCell>Action</Table.HeadCell>
 
           <Table.HeadCell>
             <span className="sr-only">Edit</span>
@@ -57,6 +72,17 @@ const CustomTable = ({ orders }) => {
                       </Accordion.Content>
                     </Accordion.Panel>
                   </Accordion>
+                </Table.Cell>
+                <Table.Cell>
+                  <Button
+                    color={"success"}
+                    onClick={() => {
+                      setInvoiceModal(true);
+                      setSelectedOrder(order);
+                    }}
+                  >
+                    View Invoice
+                  </Button>
                 </Table.Cell>
               </Table.Row>
             );

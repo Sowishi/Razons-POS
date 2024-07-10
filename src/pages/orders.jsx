@@ -34,10 +34,12 @@ const Orders = () => {
           <div className="header">
             <h1 className="text-3xl font-bold m-5">Customer Orders</h1>
           </div>
-          <Datepicker
-            onSelectedDateChanged={(date) => setSelectedDate(date)}
-            className="m-10"
-          />
+          <div className="m-10">
+            <h1 className="mb-1">Filter Date</h1>
+            <Datepicker
+              onSelectedDateChanged={(date) => setSelectedDate(date)}
+            />
+          </div>
           {filtered.length <= 0 ? (
             <h1 className="text-center text-3xl my-20">
               No order for this date 🥲
