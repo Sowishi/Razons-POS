@@ -27,7 +27,9 @@ const RightDetail = () => {
         <Modal.Header>Confirmation of Order</Modal.Header>
         <Modal.Body>
           {cart.map((item) => {
-            return <RightDetailCard confirmation={true} menu={item} />;
+            return (
+              <RightDetailCard key={item.id} confirmation={true} menu={item} />
+            );
           })}
         </Modal.Body>
         <Modal.Footer>
@@ -75,7 +77,10 @@ const RightDetail = () => {
           />
           {parseInt(customerMoney) >= parseInt(total) && (
             <h1 className="mt-3 text-lg">
-              Change: ₱{parseInt(customerMoney) - parseInt(total)}
+              Change:{" "}
+              <span className="font-bold text-green-500">
+                ₱{parseInt(customerMoney) - parseInt(total)}
+              </span>
             </h1>
           )}
         </Modal.Body>
@@ -112,7 +117,7 @@ const RightDetail = () => {
       </div>
       <div className="orders mt-4 h-96 overflow-scroll">
         {cart.length <= 0 && (
-          <h1 className="text-3xl text-center mt-5">Empty Cart</h1>
+          <h1 className="text-2xl text-center mt-5">Empty Cart 🥲</h1>
         )}
         {cart.map((item) => {
           return <RightDetailCard menu={item} />;

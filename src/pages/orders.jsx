@@ -40,7 +40,7 @@ const Orders = () => {
           />
           {filtered.length <= 0 ? (
             <h1 className="text-center text-3xl my-20">
-              No order for this date
+              No order for this date 🥲
             </h1>
           ) : (
             <CustomTable orders={filtered} />

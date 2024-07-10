@@ -35,8 +35,10 @@ const CustomTable = ({ orders }) => {
                 <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                   {orderDate}
                 </Table.Cell>
-                <Table.Cell>₱{order.customerMoney}</Table.Cell>
-                <Table.Cell>₱{order.change}</Table.Cell>
+                <Table.Cell className="font-bold">
+                  ₱{order.customerMoney}
+                </Table.Cell>
+                <Table.Cell className="font-bold">₱{order.change}</Table.Cell>
                 <Table.Cell>
                   <span className="font-bold text-green-600">
                     ₱{order.total}
