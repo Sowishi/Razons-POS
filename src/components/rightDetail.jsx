@@ -21,7 +21,7 @@ const RightDetail = () => {
   });
 
   return (
-    <div className="wrappper m-5">
+    <div className="wrappper m-5  h-4/6">
       {/* Confirmation Checkout Modal */}
       <Modal show={checkoutModal} onClose={() => setCheckoutModal(false)}>
         <Modal.Header>Confirmation of Order</Modal.Header>
@@ -115,7 +115,7 @@ const RightDetail = () => {
 
         <FaShoppingCart className="ml-3" size={"20"} />
       </div>
-      <div className="orders mt-4 h-96 overflow-scroll">
+      <div className="orders mt-4  overflow-scroll" style={{ height: "70vh" }}>
         {cart.length <= 0 && (
           <h1 className="text-2xl text-center mt-5">Empty Cart 🥲</h1>
         )}

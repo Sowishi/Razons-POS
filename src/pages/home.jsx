@@ -10,16 +10,16 @@ const Home = () => {
           <Sidebar />
         </div>
         <div
-          class="basis-8/12 p-5"
+          class="basis-9/12 p-5"
           style={{
-            backgroundColor: "#F8F8F8",
+            backgroundColor: "#EEEEEE",
             height: "100vh",
             overflow: "scroll",
           }}
         >
           <POS />
         </div>
-        <div class="basis-3/12 shadow">
+        <div style={{ backgroundColor: "#EEEEEE" }} class="basis-3/12 shadow">
           <RightDetail />
         </div>
       </div>

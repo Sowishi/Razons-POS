@@ -1,6 +1,7 @@
-import { Button } from "flowbite-react";
+import { Button, Tooltip } from "flowbite-react";
 import { useContext } from "react";
 import { CartContext } from "../context/cartContext";
+import { FaTrash } from "react-icons/fa";
 
 const RightDetailCard = ({ menu, confirmation }) => {
   const { cart, setCart } = useContext(CartContext);
@@ -41,33 +42,43 @@ const RightDetailCard = ({ menu, confirmation }) => {
   };
 
   return (
-    <div className="flex flex-row justify-start items-center my-3">
-      <div className="basis-2/12 flex justify-start items-center mx-3">
+    <div className="flex flex-row  justify-start items-center my-3">
+      <div className="basis-3/12 flex justify-start items-center mx-3">
         {confirmation && (
           <p className="mr-2">x{menu.quantity == null ? 1 : menu.quantity}</p>
         )}
-        <img
-          src={menu.image}
-          alt=""
-          className="object-cover rounded"
-          style={{ width: 50, height: 50 }}
-        />{" "}
+        <div className="img-wrapper relative">
+          <img
+            src={menu.image}
+            alt=""
+            className="object-cover rounded"
+            style={{ width: 50, height: 50 }}
+          />{" "}
+          <FaTrash
+            onClick={handleDelete}
+            color="#A20000"
+            style={{
+              position: "absolute",
+              top: 0,
+              right: -15,
+              cursor: "pointer",
+            }}
+          />
+        </div>
       </div>
-      <div className="basis-10/12 flex">
-        <div className="basis-8/12 ">
-          <div className="flex flex-col ml-3">
-            <div
-              className="title-wrapper  overflow-hidden"
-              style={{ width: 140 }}
-            >
-              <h1 className="text-sm text-nowrap">{menu.title}</h1>
-            </div>
-
-            <h1 className="text-lg font-bold text-red-600">₱{menu.price}</h1>
+      <div className="basis-9/12 flex flex-col ">
+        <div className="flex flex-col ml-3 ">
+          <div
+            className="title-wrapper  overflow-hidden"
+            style={{ width: 140 }}
+          >
+            <h1 className="text-sm text-nowrap">{menu.title}</h1>
           </div>
+
+          <h1 className="text-lg font-bold text-red-600">₱{menu.price}</h1>
         </div>
         {!confirmation && (
-          <div className="basis-4/12 flex justify-center flex-col items-start ">
+          <div>
             <div className="quantity flex justify-around items-center">
               <Button
                 disabled={!menu.quantity || menu.quantity == 1}
@@ -84,14 +95,6 @@ const RightDetailCard = ({ menu, confirmation }) => {
                 +
               </Button>
             </div>
-            <Button
-              onClick={handleDelete}
-              className="mt-2"
-              color={"failure"}
-              size={"xs"}
-            >
-              Delete
-            </Button>
           </div>
         )}
       </div>

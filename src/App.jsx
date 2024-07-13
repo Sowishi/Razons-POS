@@ -11,6 +11,7 @@ const App = () => {
   return (
     <CartContextProvider>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="pos" element={<Home />} />
         <Route path="menus" element={<Menus />} />
         <Route path="orders" element={<Orders />} />

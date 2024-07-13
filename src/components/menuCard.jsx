@@ -30,12 +30,19 @@ const MenuCard = ({
           className="title-wrapper text-ellipsis overflow-hidden ..."
           style={{ width: 250 }}
         >
-          <h1 className="text-lg my-3 w-full text-ellipsis text-nowrap">
+          <h1 className="text-lg my-3 w-full text-ellipsis text-nowrap font-bold">
             {menu.title}
           </h1>
         </div>
-        <p className="text-sm text-gray-500">{menu.description}</p>
-        <p className="text-sm text-gray-500">Category: {menu.category}</p>
+        <div className="description-wrapper">
+          <p className="text-sm text-slate-700  font-bold">
+            {menu.description}
+          </p>
+          <p className="text-sm  text-slate-700 font-bold">
+            Category: {menu.category}
+          </p>
+        </div>
+
         <h1 className="text-2xl my-3 font-bold text-red-600">₱{menu.price}</h1>
       </div>
       {!admin && (
