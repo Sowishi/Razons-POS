@@ -12,7 +12,7 @@ const Category = ({
 }) => {
   return (
     <div
-      className="wrapper my-5 mx-auto overflow-scroll py-3 "
+      className="wrapper my-5 mx-auto overflow-x-scroll overflow-y-hidden py-3 "
       style={{ width: 850 }}
     >
       {loading ? (
@@ -40,7 +40,7 @@ const Category = ({
                     selectedCategory?.id == category.id ? "success" : "green"
                   }
                 >
-                  {category.name}
+                  <h1 className="text-nowrap">{category.name}</h1>
                   {admin && (
                     <Tooltip content="Delete Category">
                       <FaTrash

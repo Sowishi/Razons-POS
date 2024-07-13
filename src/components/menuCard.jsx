@@ -23,8 +23,19 @@ const MenuCard = ({
   };
 
   return (
-    <div className="card bg-white p-5 shadow">
-      <img src={menu.image} alt="" className="w-full h-52 object-cover" />
+    <div
+      className="card my-2 p-5 shadow"
+      style={{
+        background: "rgb(1, 71, 55)",
+        background:
+          "linear-gradient(180deg, rgba(1, 71, 55, 1) 0%, rgba(254, 254, 254, 1) 61%)",
+      }}
+    >
+      <img
+        src={menu.image}
+        alt=""
+        className="w-full h-52 object-cover rounded-lg"
+      />
       <div className="wrapper">
         <div
           className="title-wrapper text-ellipsis overflow-hidden ..."

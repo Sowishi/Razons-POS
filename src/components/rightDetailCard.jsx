@@ -70,9 +70,11 @@ const RightDetailCard = ({ menu, confirmation }) => {
         <div className="flex flex-col ml-3 ">
           <div
             className="title-wrapper  overflow-hidden"
-            style={{ width: 140 }}
+            style={{ width: !confirmation ? 140 : "100%" }}
           >
-            <h1 className="text-sm text-nowrap">{menu.title}</h1>
+            <h1 className="text-sm text-nowrap font-bold text-gray-700">
+              {menu.title}
+            </h1>
           </div>
 
           <h1 className="text-lg font-bold text-red-600">₱{menu.price}</h1>

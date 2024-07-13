@@ -25,7 +25,7 @@ const PosMenu = ({ selectedCategory }) => {
       )}
       {filtered.map((menu) => {
         return (
-          <div key={menu.id} className="basis-4/12">
+          <div key={menu.id} className="basis-3/12">
             <MenuCard admin={false} menu={menu} />
           </div>
         );
