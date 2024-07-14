@@ -2,12 +2,13 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCnF3N2t6WRxhGG6pE_cB4XkCIKQeaj0-k",
+  apiKey: import.meta.env.FIREBASE_API,
   authDomain: "razon-f5c95.firebaseapp.com",
   projectId: "razon-f5c95",
   storageBucket: "razon-f5c95.appspot.com",
