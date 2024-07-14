@@ -61,7 +61,7 @@ const Menus = () => {
         });
 
   return (
-    <div className="h-screen w-full" style={{ backgroundColor: "#FBFBFB" }}>
+    <div className="h-screen w-full">
       {/* Add Category Modal */}
       <Modal
         show={categoryModal}
@@ -361,7 +361,8 @@ const Menus = () => {
         <div
           class="basis-11/12 p-5"
           style={{
-            backgroundColor: "white",
+            background:
+              "linear-gradient(237deg, rgba(1,71,55,1) 0%, rgba(238,238,238,1) 61%)",
             height: "100vh",
             overflow: "scroll",
           }}

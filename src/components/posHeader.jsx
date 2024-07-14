@@ -19,7 +19,7 @@ const PosHeader = () => {
               color={"success"}
               placeholder="Search product here..."
             />
-            <FaSearch className="ml-3" size={20} />
+            <FaSearch color="white" className="ml-3" size={20} />
           </div>
         </div>
       </div>

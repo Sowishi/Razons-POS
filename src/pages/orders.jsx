@@ -30,7 +30,13 @@ const Orders = () => {
         <div class="basis-1/12 bg-green-800 shadow">
           <Sidebar />
         </div>
-        <div class="basis-11/12 p-5 h-screen overflow-scroll">
+        <div
+          class="basis-11/12 p-5 h-screen overflow-scroll"
+          style={{
+            background:
+              "linear-gradient(237deg, rgba(1,71,55,1) 0%, rgba(238,238,238,1) 61%)",
+          }}
+        >
           <div className="header">
             <h1 className="text-3xl font-bold m-5">Customer Orders</h1>
           </div>

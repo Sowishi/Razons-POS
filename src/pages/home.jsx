@@ -12,14 +12,20 @@ const Home = () => {
         <div
           class="basis-9/12 p-5"
           style={{
-            backgroundColor: "#EEEEEE",
+            background:
+              "linear-gradient(237deg, rgba(1,71,55,1) 0%, rgba(238,238,238,1) 61%)",
             height: "100vh",
             overflow: "scroll",
           }}
         >
           <POS />
         </div>
-        <div style={{ backgroundColor: "#EEEEEE" }} class="basis-3/12 shadow">
+        <div
+          style={{
+            background: "#eeeeee",
+          }}
+          class="basis-3/12 shadow-lg"
+        >
           <RightDetail />
         </div>
       </div>

@@ -28,10 +28,6 @@ const CustomTable = ({ orders }) => {
           <Table.HeadCell>Total</Table.HeadCell>
           <Table.HeadCell>Orders</Table.HeadCell>
           <Table.HeadCell>Action</Table.HeadCell>
-
-          <Table.HeadCell>
-            <span className="sr-only">Edit</span>
-          </Table.HeadCell>
         </Table.Head>
         <Table.Body className="divide-y">
           {orders.map((order, index) => {

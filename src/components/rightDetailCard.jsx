@@ -54,16 +54,18 @@ const RightDetailCard = ({ menu, confirmation }) => {
             className="object-cover rounded"
             style={{ width: 50, height: 50 }}
           />{" "}
-          <FaTrash
-            onClick={handleDelete}
-            color="#A20000"
-            style={{
-              position: "absolute",
-              top: 0,
-              right: -15,
-              cursor: "pointer",
-            }}
-          />
+          {!confirmation && (
+            <FaTrash
+              onClick={handleDelete}
+              color="#A20000"
+              style={{
+                position: "absolute",
+                top: 0,
+                right: -15,
+                cursor: "pointer",
+              }}
+            />
+          )}
         </div>
       </div>
       <div className="basis-9/12 flex flex-col ">
